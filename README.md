@@ -16,3 +16,13 @@ You can run your application in dev mode that enables live coding using:
 ```
 
 > **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at http://localhost:8080/q/dev/.
+
+### University machines: fixing a `JAVA_HOME` error
+
+If you are on a university machine and get a `JAVA_HOME` error when running the command above, run the following PowerShell command first:
+
+```powershell
+$env:JAVA_HOME = (Get-Command javac).Source | Split-Path | Split-Path
+```
+
+This finds the installed JDK and sets `JAVA_HOME` for the current terminal session only. **You will need to run it each time you open a new terminal on the university machines.**
